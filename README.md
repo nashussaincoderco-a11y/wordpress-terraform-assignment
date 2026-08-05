@@ -63,3 +63,29 @@ I captured this screenshot of the WordPress initialisation page to confirm that 
 
 
 I also took a snapshot of the terminal output to confirm that ```terraform apply``` successfully provisioned the AWS resources and generated the public IP and URL outputs. 
+
+
+
+
+## What I learnt 
+
+By completing this project, I gained hand-on experience across key DevOps and Cloud Engineering Domains. Here are a few key takeaways: 
+- **Infrastructure as Code (IaC) - I learnt how to write, structure and execute modular Terraform code (main.tf, variables.tf, outputs.tf, provider.tf) to provision cloud infrastructure consistently instead of manually configuring it in the console.**
+- **AWS Core Services - I gained more practical experience configuring compute (EC2 instances), networking access control (Security Groups for HTTP/SSH) and dynamically fetching Amazon machine images (AMIs).**
+- **Containerization & Orchestration: I excelled in hosting applications with Docker and Docker Compose by configuring multi-container environments (WordPress and MySQL) and managing container persistence.**
+- **Automated Server Bootstrap: I learnt how to use setup scripts (user_data.sh) to automatically install dependencies, start services and deploy applications by installing Docker. This launched WordPress as soon as the server boots up without needing to log in manually.**
+- **Security & Repository Best Practices: I am getting a better understanding of applying best practices to secure GitHub repositories by using a .gitignore file to keep sensitive passwords, state files and temporary code off my public Github repository.**
+
+## Issues I ran into and what I done to fix it
+
+Upon running ``terraform apply`` the first time, I ran into a slight error preventing the WordPress infrastructure from launching. The error is in the following screenshot below. 
+
+<img width="940" height="509" alt="image" src="https://github.com/user-attachments/assets/9a6f5e42-ed4c-4692-9571-ec4abf9f82a1" />
+
+
+- **The issue: ``terraform apply`` failed because the AMI ID was invalid or unavailable in my region. (InvalidAMIID.Malformed)**
+- **The Fix: I fixed the broken AMI error by replacing the hardcoded ID with an aws_ami data block to dynamically fetch the latest Ubuntu image, then updated the ami argument in the ``main.tf`` to reference ``data.aws_ami.ubuntu.id``.**
+- **In the ``variables.tf`` file, I set the default variables for the region (``eu-west-2``) and server size(``t3.micro``) so the settings are all in one place and easy to change.**
+
+
+
