@@ -1,0 +1,23 @@
+# Local Terraform state files (may contain sensitive data)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform working directory downloaded plugins
+.terraform/
+
+# Terraform lock file override (optional, but keep default lock file tracked)
+.terraform.lock.hcl
+
+# Variable values that may contain sensitive secrets/passwords
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# System & Editor files
+.DS_Store
+.idea/
+.vscode/
