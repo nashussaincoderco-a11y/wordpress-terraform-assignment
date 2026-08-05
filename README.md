@@ -48,3 +48,18 @@ terraform destroy - I ran this safely to tear down all created AWS resources and
 ```
 
 
+## Proof of Deployment 
+
+
+<img width="940" height="511" alt="image" src="https://github.com/user-attachments/assets/9ed1b912-0770-4a40-875d-43c1af4a2a4d" />
+
+
+I captured this screenshot of the WordPress initialisation page to confirm that the EC2 instance, Docker container and network security rules were running successfully. 
+
+
+
+<img width="940" height="785" alt="image" src="https://github.com/user-attachments/assets/fae586ea-6341-4d34-9e52-f6204ea065a6" />
+
+
+
+I also took a snapshot of the terminal output to confirm that ```terraform apply``` successfully provisioned the AWS resources and generated the public IP and URL outputs. 
