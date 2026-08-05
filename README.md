@@ -37,4 +37,14 @@ I structured the repository modularly across separate Terraform and shell script
 - **user_data.sh:** I created a startup script that automatically installs Docker and runs WordPress when the server starts up.
 - **outputs.tf:** I set up output values to automatically display the public IP address and WordPress web URL right in the terminal upon successful deployment when the deployment has finished.
 
-- 
+
+## Initialisation & Apply 
+
+```bash
+terraform init - I ran this to initialize my workspace and download the required AWS provider plugins.
+terraform plan - I used this to preview the AWS resources Terraform would create before executing the changes. 
+terraform apply - I used apply to execute and provision the deployment of the actual infrastructure directly to AWS.
+terraform destroy - I ran this safely to tear down all created AWS resources and avoid unnecessary charges.  
+```
+
+
