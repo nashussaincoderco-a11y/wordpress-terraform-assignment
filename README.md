@@ -89,3 +89,10 @@ Upon running ``terraform apply`` the first time, I ran into a slight error preve
 
 
 
+
+## Terraform destroy 
+
+I ran ``terraform destroy`` at the end of this to confirm that the EC2 instance and security group was torn down with the security group to prevent unnecessary AWS costs. 
+
+
+<img width="940" height="781" alt="image" src="https://github.com/user-attachments/assets/f3fc17eb-c131-4dc3-b9c7-68ab813e6fcc" />
