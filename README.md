@@ -1,0 +1,40 @@
+# AWS WordPress Infrastructure with Terraform & Docker 
+
+I built an automated AWS Infrastructure using Terraform to provision resources and host a containerised WordPress application powered by Docker and Docker compose.  
+
+
+## Architecture Overview
+
+- **Cloud Provider:** AWS (`eu-west-2` London)
+- **Compute:** EC2 (`t3.micro` running Ubuntu 22.04 LTS)
+- **Security:** Security Group allowing HTTP (Port 80) and SSH (Port 22)
+- **Containerization:** Docker & Docker Compose executed via EC2 `user_data` script
+
+
+--- 
+
+
+## Repository Structure 
+
+I structured the repository modularly across separate Terraform and shell script files to keep configuration code clean, manageable and easy to navigate.  
+
+```text
+├── .gitignore          # Excludes Terraform state files and credentials
+├── provider.tf         # AWS Provider & version definitions
+├── main.tf             # Security Group & EC2 instance resources
+├── variables.tf        # Input variable declarations
+├── outputs.tf          # Public IP and website URL output values
+├── user_data.sh        # Startup bash script to install Docker & run WordPress
+└── README.md           # Project documentation
+```
+
+### Purpose of files within the repository
+
+- **.gitignore :** - Keep sensitive credentials, local Terraform state files and temporary cache folders safely off GitHub.
+- **provider.tf:** - I connected Terraform to AWS and set the correct version settings.
+- **variables.tf:** - I stored flexible settings here, like the AWS region and server size so they're easy to change.
+- **main.tf:** I built the main setup here with the AWS core infrastructure resources. I dynamically fetched the latest Ubuntu AMI, configured a Security Group for HTTP and SSH access and launched the EC2 instance tied to those rules.
+- **user_data.sh:** I created a startup script that automatically installs Docker and runs WordPress when the server starts up.
+- **outputs.tf:** I set up output values to automatically display the public IP address and WordPress web URL right in the terminal upon successful deployment when the deployment has finished.
+
+- 
